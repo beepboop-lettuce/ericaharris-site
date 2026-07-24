@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Writing | Erica C. Harris</title>
+  <meta name="description" content="Essays on the systems, finance, and operations behind building schools that last — by Erica C. Harris." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Writing | Erica C. Harris" />
+  <meta property="og:description" content="Essays on the systems, finance, and operations behind building schools that last." />
+  <meta property="og:url" content="https://ericacharris.com/blog/" />
+  <meta property="og:site_name" content="Erica C. Harris" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Writing | Erica C. Harris" />
+  <meta name="twitter:description" content="Essays on the systems, finance, and operations behind building schools that last." />
+
+  <style>
+    :root {
+      --ink: #435C5F;
+      --bg: #F4FAF8;
+      --link: #3793CB;
+      --accent: #EBA35E;
+      --ink-soft: #556d70;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; }
+
+    :focus-visible {
+      outline: 3px solid var(--link);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    h1 {
+      color: var(--ink);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+      font-size: 2rem;
+      margin: 0 0 0.4rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+    h1::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 44px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .page-intro { color: var(--ink-soft); margin: 0 0 2.5rem; }
+
+    /* TOP NAV */
+    .topnav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .topnav .brand {
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .topnav .brand:hover, .topnav .brand:focus-visible { text-decoration: none; }
+    .topnav .nav-links { display: flex; gap: 1.5rem; font-weight: 500; }
+
+    header.page { padding: 2rem 0 0; }
+
+    /* POST LIST */
+    .posts { list-style: none; margin: 0; padding: 0; }
+    .posts li {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid rgba(67, 92, 95, 0.14);
+    }
+    .posts li:last-child { border-bottom: 0; }
+    .posts h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 0 0 0.25rem;
+      line-height: 1.3;
+    }
+    .posts h2 a { color: var(--ink); }
+    .posts .post-date {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .posts .post-excerpt { margin: 0; color: var(--ink-soft); }
+
+    footer {
+      border-top: 1px solid rgba(67, 92, 95, 0.14);
+      padding: 2.5rem 0 3rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .copyright { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+    @media (min-width: 600px) {
+      body { font-size: 19px; }
+      h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topnav wrap" aria-label="Primary">
+    <a class="brand" href="../index.html">Erica C. Harris</a>
+    <div class="nav-links">
+      <a href="index.html" aria-current="page">Writing</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="page">
+      <h1>Writing</h1>
+      <p class="page-intro">Essays on the systems, finance, and operations behind building schools that last.</p>
+    </header>
+
+    <!-- To add a post: create a new HTML file in this folder (copy first-post.html
+         as a template) and add one <li> entry below, newest first. -->
+    <ul class="posts">
+      <li>
+        <h2><a href="first-post.html">Building in Public</a></h2>
+        <time class="post-date" datetime="2026-07-24">July 24, 2026</time>
+        <p class="post-excerpt">Why I'm writing about the operations, finance, and hard choices behind building a school network — out in the open.</p>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="copyright">&copy; 2026 Erica C. Harris</p>
+    </div>
+  </footer>
+</body>
+</html>
