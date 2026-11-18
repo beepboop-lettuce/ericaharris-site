@@ -180,6 +180,15 @@
       margin-top: 0.15rem;
       color: var(--ink-soft);
     }
+    .ventures .venture-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+    .ventures .venture-link:hover,
+    .ventures .venture-link:focus-visible { text-decoration: none; }
+    .ventures .venture-link:hover .venture-name,
+    .ventures .venture-link:focus-visible .venture-name { text-decoration: underline; }
 
     .avatar {
       position: relative;
@@ -347,9 +356,11 @@
           <span class="venture-desc">A Cognia-accredited network of Montessori schools in Central Texas, serving children from infancy through adolescence.</span>
         </li>
         <li>
-          <span class="venture-name">Classroom Comeback</span>
-          <span class="venture-role">Co-Founder, CFO</span>
-          <span class="venture-desc">A consultancy redesigning learning spaces for schools and educators.</span>
+          <a class="venture-link" href="classroom-comeback.html">
+            <span class="venture-name">Classroom Comeback</span>
+            <span class="venture-role">Co-Founder, CFO</span>
+            <span class="venture-desc">A consultancy redesigning learning spaces for schools and educators.</span>
+          </a>
         </li>
         <li>
           <span class="venture-name">Nest Paint</span>
@@ -357,9 +368,11 @@
           <span class="venture-desc">A children's coloring book brand encouraging creative expression.</span>
         </li>
         <li>
-          <span class="venture-name">Wingspan Opportunity Foundation</span>
-          <span class="venture-role">Co-Founder, CFO</span>
-          <span class="venture-desc">A nonprofit helping students across Texas gain access to Montessori education through scholarships and community support.</span>
+          <a class="venture-link" href="wingspan.html">
+            <span class="venture-name">Wingspan Opportunity Foundation</span>
+            <span class="venture-role">Co-Founder, CFO</span>
+            <span class="venture-desc">A nonprofit helping students across Texas gain access to Montessori education through scholarships and community support.</span>
+          </a>
         </li>
         <li>
           <span class="venture-name">Perch <em>(in development)</em></span>

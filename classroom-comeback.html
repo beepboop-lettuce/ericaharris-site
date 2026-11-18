@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Classroom Comeback | Erica C. Harris</title>
+  <meta name="description" content="Classroom Comeback helps education work the way it should — from reviving a single classroom to building a school from the ground up to advocating for better systems." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Classroom Comeback" />
+  <meta property="og:description" content="From one classroom to an entire school, we help education work the way it should." />
+  <meta property="og:url" content="https://ericacharris.com/classroom-comeback.html" />
+  <meta property="og:site_name" content="Erica C. Harris" />
+  <meta property="og:image" content="https://ericacharris.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Erica C. Harris, Co-Founder &amp; CFO, The Nest Montessori Network" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://ericacharris.com/og-image.jpg" />
+  <meta name="twitter:title" content="Classroom Comeback" />
+  <meta name="twitter:description" content="From one classroom to an entire school, we help education work the way it should." />
+
+  <style>
+    :root {
+      --ink: #435C5F;
+      --bg: #F4FAF8;
+      --link: #3793CB;
+      --accent: #EBA35E;
+      --ink-soft: #556d70;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: 18px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; }
+
+    :focus-visible {
+      outline: 3px solid var(--link);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* TOP NAV */
+    .topnav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .topnav .brand {
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .topnav .brand:hover, .topnav .brand:focus-visible { text-decoration: none; }
+    .topnav .nav-links { display: flex; gap: 1.5rem; font-weight: 500; }
+
+    /* PAGE HEADER */
+    .page-header { padding: 2rem 0 0.5rem; }
+    .page-header .eyebrow { margin: 0 0 1.25rem; font-size: 0.95rem; }
+    .page-header h1 {
+      color: var(--ink);
+      font-size: 2.25rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+      margin: 0;
+    }
+    .page-header .tagline {
+      margin: 0.75rem 0 0;
+      color: var(--ink-soft);
+      font-size: 1.15rem;
+      font-weight: 500;
+      max-width: 52ch;
+    }
+
+    /* CONTENT */
+    .content { padding: 1rem 0 2rem; }
+    .content h2 {
+      color: var(--ink);
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 2.5rem 0 1rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+    .content h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 44px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .content p { margin: 0 0 1.5rem; max-width: 64ch; }
+
+    .serve { list-style: none; margin: 0; padding: 0; max-width: 64ch; }
+    .serve li {
+      padding: 0.85rem 0 0.85rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid rgba(67, 92, 95, 0.12);
+      color: var(--ink);
+    }
+    .serve li:last-child { border-bottom: 0; }
+    .serve li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1.5rem;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(67, 92, 95, 0.14);
+      padding: 2.5rem 0 3rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .footer-links {
+      list-style: none;
+      margin: 0 0 1.25rem;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.75rem;
+      justify-content: center;
+    }
+    .footer-links li { margin: 0; }
+    .copyright { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+    @media (min-width: 600px) {
+      body { font-size: 19px; }
+      .page-header { padding: 3rem 0 0.5rem; }
+      .page-header h1 { font-size: 2.75rem; }
+      .content h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topnav wrap" aria-label="Primary">
+    <a class="brand" href="index.html">Erica C. Harris</a>
+    <div class="nav-links">
+      <a href="blog/index.html">Writing</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="page-header">
+      <p class="eyebrow"><a href="index.html">&larr; Back to home</a></p>
+      <h1>Classroom Comeback</h1>
+      <p class="tagline">From one classroom to an entire school, we help education work the way it should.</p>
+    </header>
+
+    <section class="content">
+      <h2>What We Do</h2>
+      <p>Classroom Comeback began as a consulting service that revives classrooms, and it has grown into something larger: a partner for anyone working to improve education, from a single learning environment to school design to education reform at the policy level.</p>
+
+      <h2>Build a School From the Ground Up</h2>
+      <p>Opening a school is one of the most complex undertakings in education, and most people attempt it exactly once. We walk with owners, operators, and philanthropists through the entire journey: concept and program design, licensing and regulatory navigation, facility planning and classroom design, staffing models, enrollment, and operations. We are not a construction firm. We are the partner who makes sure the school being built actually works for children, educators, and the people funding it.</p>
+
+      <h2>Strengthen an Existing School</h2>
+      <p>For operators already in the field, we provide the expert support this industry rarely offers: classroom redesign, staff training, operational systems, compliance readiness, and the honest outside perspective that helps a good school become an excellent one. Whether you have never operated in this space or have run schools for years, we meet you where you are.</p>
+
+      <h2>Advocate for Better Systems</h2>
+      <p>Our experience operating schools, navigating regulation, and building programs informs our work beyond individual campuses. We engage in conversations about education reform, including at the government level, because the people closest to classrooms should have a voice in the systems that govern them.</p>
+
+      <h2>Who We Serve</h2>
+      <ul class="serve">
+        <li>School owners and founders.</li>
+        <li>Philanthropists and investors entering education.</li>
+        <li>Childcare and Montessori operators.</li>
+        <li>Organizations and leaders working to improve how education is designed, regulated, and delivered.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <ul class="footer-links">
+        <li><a href="index.html">Erica C. Harris</a></li>
+        <li><a href="https://www.linkedin.com/in/ericaharris9809/">LinkedIn</a></li>
+        <li><a href="mailto:hello@ericacharris.com">hello@ericacharris.com</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Erica C. Harris</p>
+    </div>
+  </footer>
+</body>
+</html>
