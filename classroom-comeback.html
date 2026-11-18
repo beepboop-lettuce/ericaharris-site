@@ -26,188 +26,221 @@
   <style>
     :root {
       --ink: #435C5F;
-      --bg: #F4FAF8;
-      --link: #3793CB;
-      --accent: #EBA35E;
       --ink-soft: #556d70;
+      --teal: #435C5F;
+      --teal-dark: #374b4e;
+      --bg: #F4FAF8;
+      --mint: #E7F1ED;
+      --accent: #3793CB;
+      --numeral: #CFE0E0;
+      --white: #ffffff;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-
     html { -webkit-text-size-adjust: 100%; }
 
     body {
       margin: 0;
-      background: var(--bg);
+      background: var(--white);
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
-    .wrap {
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    a { color: var(--link); text-decoration: none; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover, a:focus-visible { text-decoration: underline; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
-    :focus-visible {
-      outline: 3px solid var(--link);
-      outline-offset: 3px;
-      border-radius: 3px;
-    }
+    h1, h2, h3 { color: var(--ink); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; }
 
-    /* TOP NAV */
+    .inner { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    .narrow { max-width: 650px; }
+    .center { text-align: center; }
+    .band { padding: 4rem 0; }
+
+    /* NAV */
     .topnav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-top: 1.5rem;
-      padding-bottom: 0.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      max-width: 1040px; margin: 0 auto; padding: 1.25rem 16px 0.5rem;
     }
-    .topnav .brand {
-      color: var(--ink);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
+    .topnav .brand { color: var(--ink); font-weight: 700; letter-spacing: -0.01em; }
     .topnav .brand:hover, .topnav .brand:focus-visible { text-decoration: none; }
     .topnav .nav-links { display: flex; gap: 1.5rem; font-weight: 500; }
 
-    /* PAGE HEADER */
-    .page-header { padding: 2rem 0 0.5rem; }
-    .page-header .eyebrow { margin: 0 0 1.25rem; font-size: 0.95rem; }
-    .page-header h1 {
-      color: var(--ink);
-      font-size: 2.25rem;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-      margin: 0;
+    /* HERO */
+    .hero { background: var(--teal); color: var(--white); text-align: center; padding: 4.5rem 0; }
+    .hero h1 { color: var(--white); font-size: 2.4rem; margin: 0 0 1rem; }
+    .hero .tagline { margin: 0 auto; max-width: 640px; font-size: 1.2rem; color: rgba(255,255,255,0.9); }
+
+    /* INTRO */
+    .intro h2 { font-size: 1.9rem; margin: 0 0 1rem; }
+    .intro p { margin: 0 auto; }
+
+    /* SERVICE CARDS */
+    .services { background: var(--mint); }
+    .services h2.section-title { text-align: center; font-size: 1.9rem; margin: 0 0 2rem; }
+    .cards { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 2rem 1.75rem 1.75rem;
+      box-shadow: 0 8px 28px rgba(67, 92, 95, 0.10);
     }
-    .page-header .tagline {
-      margin: 0.75rem 0 0;
-      color: var(--ink-soft);
-      font-size: 1.15rem;
-      font-weight: 500;
-      max-width: 52ch;
+    .card .num {
+      position: absolute;
+      top: 0.25rem;
+      right: 0.75rem;
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--numeral);
+      z-index: 0;
+      letter-spacing: -0.03em;
+    }
+    .card h3 { position: relative; z-index: 1; font-size: 1.25rem; margin: 0 0 0.75rem; }
+    .card p { position: relative; z-index: 1; margin: 0; color: var(--ink-soft); }
+
+    /* PULL QUOTE */
+    .pullquote { background: var(--teal); }
+    .pullquote blockquote {
+      margin: 0 auto; max-width: 820px; text-align: center;
+      color: var(--white); font-size: 1.7rem; line-height: 1.35; font-weight: 600;
     }
 
-    /* CONTENT */
-    .content { padding: 1rem 0 2rem; }
-    .content h2 {
+    /* WHO WE SERVE */
+    .serve-section h2 { text-align: center; font-size: 1.9rem; margin: 0 0 2rem; }
+    .pills { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+    .pill {
+      display: inline-block;
+      background: var(--mint);
       color: var(--ink);
-      font-size: 1.4rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin: 2.5rem 0 1rem;
-      position: relative;
-      padding-bottom: 0.6rem;
+      border: 1px solid rgba(67, 92, 95, 0.18);
+      border-radius: 999px;
+      padding: 0.6rem 1.25rem;
+      font-weight: 600;
+      font-size: 0.98rem;
     }
-    .content h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 44px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-    .content p { margin: 0 0 1.5rem; max-width: 64ch; }
 
-    .serve { list-style: none; margin: 0; padding: 0; max-width: 64ch; }
-    .serve li {
-      padding: 0.85rem 0 0.85rem 1.4rem;
-      position: relative;
-      border-bottom: 1px solid rgba(67, 92, 95, 0.12);
-      color: var(--ink);
+    /* CTA */
+    .cta { background: var(--mint); }
+    .cta h2 { font-size: 1.9rem; margin: 0 0 1.5rem; }
+    .btn {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
     }
-    .serve li:last-child { border-bottom: 0; }
-    .serve li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 1.5rem;
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-    }
+    .btn:hover, .btn:focus-visible { background: var(--teal-dark); text-decoration: none; color: var(--white); }
 
     /* FOOTER */
     footer {
       border-top: 1px solid rgba(67, 92, 95, 0.14);
       padding: 2.5rem 0 3rem;
-      margin-top: 2rem;
       text-align: center;
     }
     .footer-links {
-      list-style: none;
-      margin: 0 0 1.25rem;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.75rem;
-      justify-content: center;
+      list-style: none; margin: 0 0 1rem; padding: 0;
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; justify-content: center;
     }
     .footer-links li { margin: 0; }
     .copyright { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
 
     @media (min-width: 600px) {
       body { font-size: 19px; }
-      .page-header { padding: 3rem 0 0.5rem; }
-      .page-header h1 { font-size: 2.75rem; }
-      .content h2 { font-size: 1.6rem; }
+      .cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .hero h1 { font-size: 3.1rem; }
+      .pullquote blockquote { font-size: 2.1rem; }
     }
   </style>
 </head>
 <body>
-  <nav class="topnav wrap" aria-label="Primary">
+  <nav class="topnav" aria-label="Primary">
     <a class="brand" href="index.html">Erica C. Harris</a>
     <div class="nav-links">
       <a href="blog/index.html">Writing</a>
     </div>
   </nav>
 
-  <main class="wrap">
-    <header class="page-header">
-      <p class="eyebrow"><a href="index.html">&larr; Back to home</a></p>
+  <header class="hero">
+    <div class="inner">
       <h1>Classroom Comeback</h1>
       <p class="tagline">From one classroom to an entire school, we help education work the way it should.</p>
-    </header>
+    </div>
+  </header>
 
-    <section class="content">
-      <h2>What We Do</h2>
-      <p>Classroom Comeback began as a consulting service that revives classrooms, and it has grown into something larger: a partner for anyone working to improve education, from a single learning environment to school design to education reform at the policy level.</p>
+  <main>
+    <!-- INTRO -->
+    <section class="band intro">
+      <div class="inner narrow center">
+        <h2>What We Do</h2>
+        <p>Classroom Comeback began as a consulting service that revives classrooms, and it has grown into something larger: a partner for anyone working to improve education, from a single learning environment to school design to education reform at the policy level.</p>
+      </div>
+    </section>
 
-      <h2>Build a School From the Ground Up</h2>
-      <p>Opening a school is one of the most complex undertakings in education, and most people attempt it exactly once. We walk with owners, operators, and philanthropists through the entire journey: concept and program design, licensing and regulatory navigation, facility planning and classroom design, staffing models, enrollment, and operations. We are not a construction firm. We are the partner who makes sure the school being built actually works for children, educators, and the people funding it.</p>
+    <!-- SERVICE CARDS -->
+    <section class="band services">
+      <div class="inner">
+        <div class="cards">
+          <div class="card">
+            <span class="num" aria-hidden="true">01</span>
+            <h3>Build a School From the Ground Up</h3>
+            <p>Opening a school is one of the most complex undertakings in education, and most people attempt it exactly once. We walk with owners, operators, and philanthropists through the entire journey: concept and program design, licensing and regulatory navigation, facility planning, staffing, enrollment, and operations. We are the partner who makes sure the school being built actually works for children, educators, and the people funding it.</p>
+          </div>
+          <div class="card">
+            <span class="num" aria-hidden="true">02</span>
+            <h3>Strengthen an Existing School</h3>
+            <p>For operators already in the field, we provide the expert support this industry rarely offers: classroom redesign, staff training, operational systems, compliance readiness, and the honest outside perspective that helps a good school become an excellent one. Whether you have never operated in this space or have run schools for years, we meet you where you are.</p>
+          </div>
+          <div class="card">
+            <span class="num" aria-hidden="true">03</span>
+            <h3>Advocate for Better Systems</h3>
+            <p>Our experience operating schools, navigating regulation, and building programs informs our work beyond individual campuses. We engage in conversations about education reform, including at the government level, because the people closest to classrooms should have a voice in the systems that govern them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <h2>Strengthen an Existing School</h2>
-      <p>For operators already in the field, we provide the expert support this industry rarely offers: classroom redesign, staff training, operational systems, compliance readiness, and the honest outside perspective that helps a good school become an excellent one. Whether you have never operated in this space or have run schools for years, we meet you where you are.</p>
+    <!-- PULL QUOTE -->
+    <section class="band pullquote">
+      <div class="inner">
+        <blockquote>The people closest to classrooms should have a voice in the systems that govern them.</blockquote>
+      </div>
+    </section>
 
-      <h2>Advocate for Better Systems</h2>
-      <p>Our experience operating schools, navigating regulation, and building programs informs our work beyond individual campuses. We engage in conversations about education reform, including at the government level, because the people closest to classrooms should have a voice in the systems that govern them.</p>
+    <!-- WHO WE SERVE -->
+    <section class="band serve-section">
+      <div class="inner">
+        <h2>Who We Serve</h2>
+        <div class="pills">
+          <span class="pill">School owners and founders</span>
+          <span class="pill">Philanthropists entering education</span>
+          <span class="pill">Childcare and Montessori operators</span>
+          <span class="pill">Leaders improving education systems</span>
+        </div>
+      </div>
+    </section>
 
-      <h2>Who We Serve</h2>
-      <ul class="serve">
-        <li>School owners and founders.</li>
-        <li>Philanthropists and investors entering education.</li>
-        <li>Childcare and Montessori operators.</li>
-        <li>Organizations and leaders working to improve how education is designed, regulated, and delivered.</li>
-      </ul>
+    <!-- CTA -->
+    <section class="band cta">
+      <div class="inner narrow center">
+        <h2>Start the Conversation</h2>
+        <a class="btn" href="mailto:hello@ericacharris.com">Get in Touch</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
+    <div class="inner">
       <ul class="footer-links">
         <li><a href="index.html">Erica C. Harris</a></li>
         <li><a href="https://www.linkedin.com/in/ericaharris9809/">LinkedIn</a></li>
