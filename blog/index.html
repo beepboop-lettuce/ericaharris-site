@@ -23,196 +23,166 @@
   <meta name="twitter:title" content="Writing | Erica C. Harris" />
   <meta name="twitter:description" content="Essays on the systems, finance, and operations behind building schools that last." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --ink: #435C5F;
+      --teal: #435C5F;
       --bg: #F4FAF8;
       --link: #3793CB;
       --accent: #EBA35E;
       --ink-soft: #556d70;
+      --white: #ffffff;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-
     html { -webkit-text-size-adjust: 100%; }
 
     body {
       margin: 0;
       background: var(--bg);
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--teal);
+      font-family: var(--sans);
       font-size: 18px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
 
-    .wrap {
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--teal); }
 
     a { color: var(--link); text-decoration: none; }
     a:hover, a:focus-visible { text-decoration: underline; }
+    :focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 3px; }
 
-    :focus-visible {
-      outline: 3px solid var(--link);
-      outline-offset: 3px;
-      border-radius: 3px;
-    }
+    .inner { max-width: 1060px; margin: 0 auto; padding: 0 16px; }
 
-    h1 {
-      color: var(--ink);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-      font-size: 2rem;
-      margin: 0 0 0.4rem;
-      position: relative;
-      padding-bottom: 0.6rem;
-    }
-    h1::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 44px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-
-    .page-intro { color: var(--ink-soft); margin: 0 0 2.5rem; }
-
-    /* TOP NAV */
+    /* NAV */
     .topnav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-top: 1.5rem;
-      padding-bottom: 0.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      max-width: 1060px; margin: 0 auto; padding: 1.25rem 16px;
     }
-    .topnav .brand {
-      color: var(--ink);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
+    .topnav .brand { color: var(--teal); font-weight: 700; font-family: var(--serif); font-size: 1.15rem; }
     .topnav .brand:hover, .topnav .brand:focus-visible { text-decoration: none; }
-    .topnav .nav-links { display: flex; gap: 1.5rem; font-weight: 500; }
+    .topnav .nav-links { display: flex; gap: 1.5rem; font-weight: 600; }
 
-    header.page { padding: 2rem 0 0; }
+    /* HERO STRIP */
+    .hero { background: var(--teal); color: var(--white); padding: 3.5rem 0; }
+    .hero h1 { color: var(--white); font-size: 2.6rem; margin: 0 0 0.6rem; }
+    .hero p { margin: 0; color: rgba(255,255,255,0.9); font-size: 1.15rem; }
 
-    /* POST LIST */
-    .posts { list-style: none; margin: 0; padding: 0; }
-    .posts li {
-      padding: 1.75rem 0;
-      border-bottom: 1px solid rgba(67, 92, 95, 0.14);
+    /* POSTS GRID */
+    .posts-section { padding: 3.5rem 0 4.5rem; }
+    .posts-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .pcard {
+      background: var(--white); border-radius: 14px; padding: 1.75rem;
+      box-shadow: 0 8px 26px rgba(67,92,95,0.08);
+      border: 1px solid rgba(67,92,95,0.06);
+      display: block; color: inherit; text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
-    .posts li:last-child { border-bottom: 0; }
-    .posts h2 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin: 0 0 0.25rem;
-      line-height: 1.3;
+    .pcard:hover, .pcard:focus-visible {
+      text-decoration: none;
+      transform: translateY(-3px);
+      border-bottom-color: var(--link);
+      box-shadow: 0 14px 34px rgba(67,92,95,0.14);
     }
-    .posts h2 a { color: var(--ink); }
-    .posts .post-date {
-      display: block;
-      color: var(--ink-soft);
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-    .posts .post-excerpt { margin: 0; color: var(--ink-soft); }
+    .pcard .pdate { color: var(--link); font-size: 0.9rem; font-weight: 600; margin: 0 0 0.5rem; }
+    .pcard h2 { font-size: 1.35rem; margin: 0 0 0.6rem; color: var(--teal); }
+    .pcard:hover h2, .pcard:focus-visible h2 { text-decoration: underline; text-decoration-color: var(--link); text-underline-offset: 3px; }
+    .pcard p { margin: 0; color: var(--ink-soft); }
 
-    footer {
-      border-top: 1px solid rgba(67, 92, 95, 0.14);
-      padding: 2.5rem 0 3rem;
-      margin-top: 2rem;
-      text-align: center;
-    }
+    /* FOOTER */
+    footer { border-top: 1px solid rgba(67,92,95,0.14); padding: 2.5rem 0 3rem; text-align: center; }
     .copyright { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
 
-    @media (min-width: 600px) {
+    @media (min-width: 680px) {
       body { font-size: 19px; }
-      h1 { font-size: 2.4rem; }
+      .posts-grid { grid-template-columns: 1fr 1fr; }
+      .hero h1 { font-size: 3.1rem; }
     }
   </style>
 </head>
 <body>
-  <nav class="topnav wrap" aria-label="Primary">
+  <nav class="topnav" aria-label="Primary">
     <a class="brand" href="../index.html">Erica C. Harris</a>
     <div class="nav-links">
       <a href="index.html" aria-current="page">Writing</a>
     </div>
   </nav>
 
-  <main class="wrap">
-    <header class="page">
-      <h1>Writing</h1>
-      <p class="page-intro">Essays on the systems, finance, and operations behind building schools that last.</p>
-    </header>
+  <header class="hero">
+    <div class="inner">
+      <h1>Essays</h1>
+      <p>Honest writing about what it takes to run a school.</p>
+    </div>
+  </header>
 
-    <!-- To add a post: create a new HTML file in this folder (copy first-post.html
-         as a template) and add one <li> entry below, newest first. -->
-    <ul class="posts">
-      <li>
-        <h2><a href="your-child-is-more-resilient.html">Your Child Is More Resilient Than You Think</a></h2>
-        <time class="post-date" datetime="2026-11-18">November 18, 2026</time>
-        <p class="post-excerpt">A clinical social worker turned school founder on why children are far more resilient than we fear — the safety paradox, "good enough," and what real distress actually looks like.</p>
-      </li>
-      <li>
-        <h2><a href="hardest-truth-about-staffing.html">The Hardest Truth About Childcare Staffing</a></h2>
-        <time class="post-date" datetime="2026-11-02">November 2, 2026</time>
-        <p class="post-excerpt">When a teacher leaves, parents feel it personally. An honest, compassionate explanation of childcare staffing — and why your child is okay.</p>
-      </li>
-      <li>
-        <h2><a href="where-your-tuition-actually-goes.html">Where Your Tuition Actually Goes</a></h2>
-        <time class="post-date" datetime="2026-10-29">October 29, 2026</time>
-        <p class="post-excerpt">Parents rarely ask directly, so here's the honest answer: where an average $1,550 monthly tuition actually goes, line by line.</p>
-      </li>
-      <li>
-        <h2><a href="what-we-are-building-toward.html">What We Are Building Toward</a></h2>
-        <time class="post-date" datetime="2026-10-27">October 27, 2026</time>
-        <p class="post-excerpt">After all the hard math — margins, rules, and cost — the other side of the ledger: the farm school, the foundation, the training center, and the children it is all for.</p>
-      </li>
-      <li>
-        <h2><a href="the-margin-nobody-envies.html">The Margin Nobody Envies</a></h2>
-        <time class="post-date" datetime="2026-10-22">October 22, 2026</time>
-        <p class="post-excerpt">A 25 percent margin is healthy in most industries; in childcare it's often closer to 1 percent. Where our margin actually goes — and who absorbs the gap.</p>
-      </li>
-      <li>
-        <h2><a href="ten-bosses.html">I Have Ten Bosses (A Love Letter to Childcare Compliance)</a></h2>
-        <time class="post-date" datetime="2026-10-19">October 19, 2026</time>
-        <p class="post-excerpt">I paid three hundred dollars to file an LLC and quietly acquired ten bosses — licensing, health, fire, accreditors, and more. A love letter to childcare compliance.</p>
-      </li>
-      <li>
-        <h2><a href="how-families-afford-our-school.html">How Families Actually Afford Our School (and What That Takes Behind the Scenes)</a></h2>
-        <time class="post-date" datetime="2026-10-14">October 14, 2026</time>
-        <p class="post-excerpt">When a family can't afford tuition, that's the beginning of the conversation. The funding paths most parents don't know exist — and what accepting government funding actually costs a school behind the scenes.</p>
-      </li>
-      <li>
-        <h2><a href="200-standard-operating-procedures.html">Why I Wrote 200 Standard Operating Procedures for a School</a></h2>
-        <time class="post-date" datetime="2026-08-26">August 26, 2026</time>
-        <p class="post-excerpt">Nobody asked me to. Why a library of more than 200 SOPs is really a prepared environment for the adults — so the system carries the logistics and our guides can carry the children.</p>
-      </li>
-      <li>
-        <h2><a href="infant-room-costs.html">What an Infant Room Actually Costs to Run</a></h2>
-        <time class="post-date" datetime="2026-08-26">August 26, 2026</time>
-        <p class="post-excerpt">Everyone knows infant care is expensive. Almost nobody knows where the money goes — so here is the math nobody puts in the brochure.</p>
-      </li>
-      <li>
-        <h2><a href="washer-and-dryer-on-the-front-porch.html">A Washer and Dryer on the Front Porch</a></h2>
-        <time class="post-date" datetime="2026-08-19">August 19, 2026</time>
-        <p class="post-excerpt">In the fall of 2022, a washer and dryer sat on my front porch, and a school stood in my entryway. How The Nest began.</p>
-      </li>
-    </ul>
+  <main class="posts-section">
+    <div class="inner">
+      <div class="posts-grid">
+        <a class="pcard" href="your-child-is-more-resilient.html">
+          <p class="pdate">November 18, 2026</p>
+          <h2>Your Child Is More Resilient Than You Think</h2>
+          <p>Before I was a school founder, before I was a CFO, I spent years in clinical social work. I worked in hospice, in trauma, in addiction counseling.</p>
+        </a>
+        <a class="pcard" href="hardest-truth-about-staffing.html">
+          <p class="pdate">November 2, 2026</p>
+          <h2>The Hardest Truth About Childcare Staffing</h2>
+          <p>When a teacher leaves a school unexpectedly, parents feel it personally, and I understand why completely.</p>
+        </a>
+        <a class="pcard" href="where-your-tuition-actually-goes.html">
+          <p class="pdate">October 29, 2026</p>
+          <h2>Where Your Tuition Actually Goes</h2>
+          <p>Parents never ask me this directly, but I know plenty wonder, so let me just answer it. Our average tuition is about 1,550 dollars a month.</p>
+        </a>
+        <a class="pcard" href="what-we-are-building-toward.html">
+          <p class="pdate">October 27, 2026</p>
+          <h2>What We Are Building Toward</h2>
+          <p>I have spent most of this blog showing you the hard math of childcare, the margins, the regulations, and the cost of doing this work well, so today I want to write about the other side of the ledger.</p>
+        </a>
+        <a class="pcard" href="the-margin-nobody-envies.html">
+          <p class="pdate">October 22, 2026</p>
+          <h2>The Margin Nobody Envies</h2>
+          <p>In most industries, a 25 percent profit margin is considered strong and healthy. In childcare, the commonly cited range is 8 to 15 percent, and some federal analysis puts the typical center closer to 1 percent.</p>
+        </a>
+        <a class="pcard" href="ten-bosses.html">
+          <p class="pdate">October 19, 2026</p>
+          <h2>I Have Ten Bosses (A Love Letter to Childcare Compliance)</h2>
+          <p>When I filed the LLC paperwork to start a Montessori school, I paid about three hundred dollars and signed my name.</p>
+        </a>
+        <a class="pcard" href="how-families-afford-our-school.html">
+          <p class="pdate">October 14, 2026</p>
+          <h2>How Families Actually Afford Our School (and What That Takes Behind the Scenes)</h2>
+          <p>When a family tells us they can't afford tuition, that is not the end of the conversation.</p>
+        </a>
+        <a class="pcard" href="infant-room-costs.html">
+          <p class="pdate">August 26, 2026</p>
+          <h2>What an Infant Room Actually Costs to Run</h2>
+          <p>Everyone knows infant care is expensive. Almost nobody knows the true cost of care for this age.</p>
+        </a>
+        <a class="pcard" href="200-standard-operating-procedures.html">
+          <p class="pdate">August 26, 2026</p>
+          <h2>Why I Wrote 200 Standard Operating Procedures for a School</h2>
+          <p>One of the first things I did when we opened The Nest was start writing standard operating procedures. Nobody asked me to.</p>
+        </a>
+        <a class="pcard" href="washer-and-dryer-on-the-front-porch.html">
+          <p class="pdate">August 19, 2026</p>
+          <h2>A Washer and Dryer on the Front Porch</h2>
+          <p>In the fall of 2022, a washer and dryer sat on my front porch, and a school stood in my entryway.</p>
+        </a>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <div class="wrap">
+    <div class="inner">
       <p class="copyright">&copy; 2026 Erica C. Harris</p>
     </div>
   </footer>

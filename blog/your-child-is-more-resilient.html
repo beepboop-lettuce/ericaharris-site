@@ -25,122 +25,90 @@
   <meta name="twitter:title" content="Your Child Is More Resilient Than You Think | Erica C. Harris" />
   <meta name="twitter:description" content="Why children are far more resilient than we fear — the safety paradox, the 'good enough' environment, struggle as curriculum, and what real distress actually looks like." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #435C5F;
+      --teal: #435C5F;
       --bg: #F4FAF8;
       --link: #3793CB;
       --accent: #EBA35E;
       --ink-soft: #556d70;
+      --white: #ffffff;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-
     html { -webkit-text-size-adjust: 100%; }
 
     body {
       margin: 0;
       background: var(--bg);
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--teal);
+      font-family: var(--sans);
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+      overflow-x: hidden;
     }
 
     a { color: var(--link); text-decoration: none; }
     a:hover, a:focus-visible { text-decoration: underline; }
+    :focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 3px; }
 
-    :focus-visible {
-      outline: 3px solid var(--link);
-      outline-offset: 3px;
-      border-radius: 3px;
-    }
-
-    /* TOP NAV */
+    /* NAV */
     .topnav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-top: 1.5rem;
-      padding-bottom: 0.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      max-width: 1060px; margin: 0 auto; padding: 1.25rem 16px;
     }
-    .topnav .brand {
-      color: var(--ink);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
+    .topnav .brand { color: var(--teal); font-weight: 700; font-family: var(--serif); font-size: 1.15rem; }
     .topnav .brand:hover, .topnav .brand:focus-visible { text-decoration: none; }
-    .topnav .nav-links { display: flex; gap: 1.5rem; font-weight: 500; }
+    .topnav .nav-links { display: flex; gap: 1.5rem; font-weight: 600; }
+
+    .wrap { width: 100%; max-width: 700px; margin: 0 auto; padding: 0 16px; }
 
     /* ARTICLE */
-    .article { max-width: 680px; padding: 2rem 0 1rem; }
-
-    .article .eyebrow {
-      margin: 0 0 1.25rem;
-      font-size: 0.95rem;
-    }
-
+    .article { padding: 2rem 0 1rem; }
+    .article .eyebrow { margin: 0 0 1.25rem; font-size: 0.95rem; }
     .article h1 {
-      color: var(--ink);
-      font-size: 2rem;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
+      font-family: var(--serif); font-weight: 600; color: var(--teal);
+      font-size: 2.1rem; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 0.6rem;
     }
-
     .article .post-date {
-      display: block;
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-      margin-bottom: 2.25rem;
+      display: block; color: var(--link); font-weight: 600; font-size: 0.95rem;
+      padding-bottom: 1.5rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(67, 92, 95, 0.3);
     }
-
     .article p { margin: 0 0 1.5rem; }
-
     .article h2 {
-      color: var(--ink);
-      font-size: 1.4rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin: 2.5rem 0 1rem;
+      font-family: var(--serif); font-weight: 600; color: var(--teal);
+      font-size: 1.5rem; line-height: 1.25; margin: 2.5rem 0 1rem;
     }
-
     .article blockquote {
-      margin: 2rem 0;
-      padding: 0.25rem 0 0.25rem 1.25rem;
-      border-left: 3px solid var(--accent);
-      color: var(--ink-soft);
-      font-style: italic;
+      margin: 2rem 0; padding: 0.25rem 0 0.25rem 1.25rem;
+      border-left: 3px solid var(--accent); color: var(--ink-soft); font-style: italic;
     }
+    .article .sign { margin-top: 2.5rem; color: var(--ink-soft); font-style: italic; }
 
-    .article .sign {
-      margin-top: 2.5rem;
-      color: var(--ink-soft);
-      font-style: italic;
+    /* ARTICLE END BAND */
+    .article-end { background: var(--white); border-top: 1px solid rgba(67, 92, 95, 0.12); padding: 2.5rem 0; }
+    .article-end .more { margin: 0 0 1.5rem; font-weight: 600; }
+    .author-bio { display: flex; align-items: center; gap: 1rem; }
+    .author-bio img {
+      width: 60px; height: 60px; border-radius: 50%; object-fit: cover; object-position: center top; flex: none;
+      border: 2px solid #fff; box-shadow: 0 4px 14px rgba(67, 92, 95, 0.18);
     }
+    .author-bio p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
 
-    footer {
-      border-top: 1px solid rgba(67, 92, 95, 0.14);
-      padding: 2.5rem 0 3rem;
-      margin-top: 2.5rem;
-      text-align: center;
-    }
+    /* FOOTER */
+    footer { border-top: 1px solid rgba(67, 92, 95, 0.14); padding: 2.5rem 0 3rem; text-align: center; }
     .copyright { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
 
     @media (min-width: 600px) {
       body { font-size: 19px; }
-      .article h1 { font-size: 2.5rem; }
+      .article h1 { font-size: 2.6rem; }
     }
   </style>
 </head>
@@ -206,6 +174,15 @@
     </article>
   </main>
 
+  <section class="article-end">
+    <div class="wrap">
+      <p class="more"><a href="index.html">&larr; More essays</a></p>
+      <div class="author-bio">
+        <img src="../headshot.jpg" alt="Erica C. Harris" />
+        <p>Erica C. Harris is the Co-Founder and CFO of The Nest, a Cognia-accredited network of Montessori schools in Central Texas. <a href="../index.html">About &rarr;</a></p>
+      </div>
+    </div>
+  </section>
   <footer>
     <div class="wrap">
       <p class="copyright">&copy; 2026 Erica C. Harris</p>

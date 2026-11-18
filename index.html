@@ -65,339 +65,301 @@
   }
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --ink: #435C5F;
+      --teal: #435C5F;
+      --teal-dark: #374b4e;
       --bg: #F4FAF8;
       --link: #3793CB;
       --accent: #EBA35E;
       --ink-soft: #556d70;
-      --card: #ffffff;
+      --white: #ffffff;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-
     html { -webkit-text-size-adjust: 100%; }
 
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--white);
+      color: var(--teal);
+      font-family: var(--sans);
       font-size: 18px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
 
-    .wrap {
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; color: var(--teal); }
 
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
+    a { color: var(--link); text-decoration: none; }
     a:hover, a:focus-visible { text-decoration: underline; }
+    :focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 3px; }
 
-    :focus-visible {
-      outline: 3px solid var(--link);
-      outline-offset: 3px;
-      border-radius: 3px;
-    }
+    .inner { max-width: 1060px; margin: 0 auto; padding: 0 16px; }
+    .narrow { max-width: 680px; }
+    .band { padding: 4rem 0; }
 
-    h1, h2 {
-      color: var(--ink);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-    }
-
-    /* TOP NAV */
+    /* NAV */
     .topnav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-top: 1.5rem;
-      padding-bottom: 0.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      max-width: 1060px; margin: 0 auto; padding: 1.25rem 16px;
     }
-    .topnav .brand {
-      color: var(--ink);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
+    .topnav .brand { color: var(--teal); font-weight: 700; font-family: var(--serif); font-size: 1.15rem; }
     .topnav .brand:hover, .topnav .brand:focus-visible { text-decoration: none; }
-    .topnav .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      font-weight: 500;
-    }
+    .topnav .nav-links { display: flex; gap: 1.5rem; font-weight: 600; }
+
+    /* BUTTONS */
+    .btn { display: inline-block; padding: 0.8rem 1.6rem; border-radius: 999px; font-weight: 600; text-decoration: none; }
+    .btn:hover, .btn:focus-visible { text-decoration: none; }
+    .btn-white { background: var(--white); color: var(--teal); }
+    .btn-white:hover, .btn-white:focus-visible { background: #eef5f3; }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.55); }
+    .btn-outline:hover, .btn-outline:focus-visible { border-color: #fff; background: rgba(255,255,255,0.08); }
+    .btn-teal { background: var(--teal); color: var(--white); }
+    .btn-teal:hover, .btn-teal:focus-visible { background: var(--teal-dark); color: var(--white); }
 
     /* HERO */
-    .hero {
-      text-align: center;
-      padding: 2.5rem 0 2.5rem;
+    .hero { background: var(--teal); color: var(--white); padding: 3rem 0 4rem; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+    .hero h1 { color: var(--white); font-size: 2.8rem; margin: 0 0 0.5rem; }
+    .hero .role { color: rgba(255,255,255,0.85); font-weight: 600; margin: 0 0 1.25rem; }
+    .hero .intro { color: rgba(255,255,255,0.92); margin: 0 0 1.75rem; max-width: 42ch; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+    .hero-photo { position: relative; width: 100%; max-width: 320px; margin: 0 auto; padding: 0 18px 18px 0; }
+    .hero-photo .frame {
+      position: relative; z-index: 1; border-radius: 16px; overflow: hidden;
+      border: 5px solid #fff; box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+    }
+    .hero-photo .frame img { display: block; width: 100%; height: auto; }
+    .hero-photo::after {
+      content: ""; position: absolute; z-index: 0; right: 0; bottom: 0;
+      width: calc(100% - 18px); height: calc(100% - 18px);
+      background: var(--bg); border-radius: 16px;
+    }
+
+    /* CREDENTIAL STRIP */
+    .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 1rem; text-align: center; }
+    .cred .num { font-family: var(--serif); font-weight: 600; font-size: 2.1rem; color: var(--teal); line-height: 1.1; display: block; }
+    .cred .label { color: var(--ink-soft); font-size: 0.95rem; margin-top: 0.35rem; display: block; }
+
+    /* ABOUT */
+    .about { background: var(--bg); }
+    .about h2 { font-size: 1.9rem; margin: 0 0 1.5rem; }
+    .about p { margin: 0 0 1.35rem; color: var(--teal); }
+    .about .pull {
+      font-family: var(--serif); font-weight: 600; font-size: 1.5rem; line-height: 1.35;
+      color: var(--teal); margin: 2rem 0; padding-left: 1.25rem; border-left: 4px solid var(--accent);
     }
 
     /* VENTURES */
-    .ventures ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .ventures h2 { font-size: 1.9rem; margin: 0 0 2rem; }
+    .vcards { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .vcard {
+      background: var(--white); border-top: 3px solid var(--teal);
+      border-radius: 4px 4px 12px 12px; padding: 1.5rem;
+      box-shadow: 0 8px 26px rgba(67,92,95,0.09); border: 1px solid rgba(67,92,95,0.08); border-top: 3px solid var(--teal);
+      display: flex; flex-direction: column;
     }
-    .ventures li {
-      padding: 1.1rem 0;
-      border-bottom: 1px solid rgba(67, 92, 95, 0.12);
-    }
-    .ventures li:first-child { padding-top: 0; }
-    .ventures li:last-child { padding-bottom: 0; border-bottom: 0; }
-    .ventures .venture-name {
-      display: block;
-      color: var(--ink);
-      font-weight: 700;
-      font-size: 1.05rem;
-    }
-    .ventures .venture-name em {
-      font-weight: 500;
-      font-style: normal;
-      color: var(--ink-soft);
-      font-size: 0.9rem;
-    }
-    .ventures .venture-role {
-      display: block;
-      margin-top: 0.1rem;
-      color: var(--ink-soft);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-    .ventures .venture-desc {
-      display: block;
-      margin-top: 0.15rem;
-      color: var(--ink-soft);
-    }
-    .ventures .venture-link {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-    }
-    .ventures .venture-link:hover,
-    .ventures .venture-link:focus-visible { text-decoration: none; }
-    .ventures .venture-link:hover .venture-name,
-    .ventures .venture-link:focus-visible .venture-name { text-decoration: underline; }
+    .vcard h3 { font-size: 1.3rem; margin: 0 0 0.2rem; }
+    .vcard .role { color: var(--ink-soft); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.6rem; }
+    .vcard p { margin: 0 0 1rem; color: var(--ink-soft); }
+    .vcard .arrow { margin-top: auto; font-weight: 600; color: var(--link); }
+    a.vcard { text-decoration: none; }
+    a.vcard:hover .arrow, a.vcard:focus-visible .arrow { text-decoration: underline; }
+    a.vcard h3 { color: var(--teal); }
 
-    .avatar {
-      position: relative;
-      width: 132px;
-      height: 132px;
-      border-radius: 50%;
-      margin: 0 auto 1.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--ink);
-      color: var(--bg);
-      font-size: 2.75rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      border: 4px solid #fff;
-      box-shadow: 0 6px 24px rgba(67, 92, 95, 0.18);
-      overflow: hidden;
-    }
+    /* FEATURED WRITING */
+    .featured { background: var(--teal); color: var(--white); }
+    .featured h2 { color: var(--white); font-size: 1.9rem; margin: 0 0 2rem; }
+    .posts3 { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .pcard { background: var(--white); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; }
+    .pcard .pdate { color: var(--link); font-size: 0.9rem; font-weight: 600; margin: 0 0 0.5rem; }
+    .pcard h3 { font-size: 1.2rem; margin: 0 0 0.6rem; }
+    .pcard h3 a { color: var(--teal); }
+    .pcard p { margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.97rem; }
+    .pcard .read { margin-top: auto; font-weight: 600; }
+    .featured-cta { margin-top: 2rem; text-align: center; }
 
-    /* Photo layered over the initials; if headshot.jpg is missing it is
-       hidden and the initials below remain as the fallback. */
-    .avatar img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 50%;
-    }
+    /* PRESS */
+    .press { background: var(--bg); }
+    .press h2 { font-size: 1.9rem; margin: 0 0 1.25rem; }
+    .press p { margin: 0 0 0.75rem; color: var(--teal); }
+    .press .press-note { color: var(--ink-soft); }
 
-    .hero h1 {
-      margin: 0 0 0.5rem;
-      font-size: 2.25rem;
-    }
-
-    .hero .title {
-      margin: 0 auto 1.75rem;
-      max-width: 34ch;
-      color: var(--ink-soft);
-      font-size: 1.05rem;
-      font-weight: 500;
-    }
-
-    .hero .bio {
-      margin: 0 auto;
-      max-width: 56ch;
-      text-align: left;
-    }
-
-    /* SECTIONS */
-    section { padding: 2.5rem 0; }
-
-    .section-divider { border-top: 1px solid rgba(67, 92, 95, 0.14); }
-
-    h2 {
-      font-size: 1.4rem;
-      margin: 0 0 1.25rem;
-      position: relative;
-      padding-bottom: 0.6rem;
-    }
-    h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 44px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-
-    .about-photo {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0 0 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 24px rgba(67, 92, 95, 0.14);
-    }
-
-    .about p { margin: 0 0 1.35rem; }
-    .about p:last-child { margin-bottom: 0; }
-
-    .press p { margin: 0; color: var(--ink-soft); }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid rgba(67, 92, 95, 0.14);
-      padding: 2.5rem 0 3rem;
-      text-align: center;
-    }
-
+    /* CONTACT / FOOTER */
+    .contact { background: var(--teal); color: var(--white); text-align: center; }
+    .contact h2 { color: var(--white); font-size: 2rem; margin: 0 0 0.75rem; }
+    .contact .invite { color: rgba(255,255,255,0.9); margin: 0 auto 1.75rem; max-width: 46ch; }
+    .contact .btn-white { margin-bottom: 2.25rem; }
     .footer-links {
-      list-style: none;
-      margin: 0 0 1.25rem;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.75rem;
-      justify-content: center;
+      list-style: none; margin: 0 0 1rem; padding: 0;
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; justify-content: center; font-weight: 600;
     }
+    .footer-links a { color: var(--white); }
     .footer-links li { margin: 0; }
+    .copyright { margin: 0; color: rgba(255,255,255,0.75); font-size: 0.9rem; }
 
-    .copyright {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 0.9rem;
+    @media (min-width: 620px) {
+      .creds-grid { grid-template-columns: repeat(4, 1fr); }
+      .vcards { grid-template-columns: repeat(2, 1fr); }
+      .posts3 { grid-template-columns: repeat(3, 1fr); }
     }
-
-    @media (min-width: 600px) {
-      body { font-size: 19px; }
-      .hero { padding: 5.5rem 0 3rem; }
-      .hero h1 { font-size: 2.75rem; }
-      .avatar { width: 172px; height: 172px; font-size: 3.4rem; }
-      h2 { font-size: 1.6rem; }
-      .about-photo {
-        float: right;
-        width: 42%;
-        max-width: 320px;
-        margin: 0.25rem 0 1rem 1.75rem;
-      }
+    @media (min-width: 880px) {
+      .hero { padding: 4.5rem 0 5rem; }
+      .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 3rem; }
+      .hero h1 { font-size: 3.4rem; }
+      .vcards { grid-template-columns: repeat(3, 1fr); }
+      .band { padding: 5rem 0; }
     }
   </style>
 </head>
 <body>
-  <nav class="topnav wrap" aria-label="Primary">
+  <nav class="topnav" aria-label="Primary">
     <a class="brand" href="index.html">Erica C. Harris</a>
     <div class="nav-links">
       <a href="blog/index.html">Writing</a>
     </div>
   </nav>
 
-  <main class="wrap">
-
-    <!-- HERO -->
-    <header class="hero">
-      <div class="avatar">
-        <span aria-hidden="true">EH</span>
-        <img src="headshot.jpg" alt="Erica C. Harris" onerror="this.remove()" />
+  <!-- HERO -->
+  <header class="hero">
+    <div class="inner hero-grid">
+      <div class="hero-text">
+        <h1>Erica Harris</h1>
+        <p class="role">Co-Founder &amp; CFO, The Nest Montessori Network</p>
+        <p class="intro">Erica C. Harris is the Co-Founder and CFO of The Nest, a Cognia-accredited network of Montessori schools in Central Texas. A U.S. Army veteran with a clinical social work background and degrees in psychology and computer science, she writes about the systems and finance behind building schools that last. She lives in the Texas Hill Country with her family.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-white" href="blog/index.html">Read My Essays</a>
+          <a class="btn btn-outline" href="#press">Press &amp; Speaking</a>
+        </div>
       </div>
-      <h1>Erica C. Harris</h1>
-      <p class="title">Co-Founder &amp; CFO, The Nest Montessori Network</p>
-      <p class="bio">Erica C. Harris is the Co-Founder and CFO of The Nest, a Cognia-accredited network of Montessori schools in Central Texas. A U.S. Army veteran with a clinical social work background and degrees in psychology and computer science, she writes about the systems and finance behind building schools that last. She lives in the Texas Hill Country with her family.</p>
-    </header>
+      <div class="hero-photo">
+        <div class="frame">
+          <img src="headshot.jpg" alt="Erica C. Harris" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- CREDENTIAL STRIP -->
+    <section class="band">
+      <div class="inner creds-grid">
+        <div class="cred"><span class="num">10 yrs</span><span class="label">U.S. Army logistics</span></div>
+        <div class="cred"><span class="num">Clinical</span><span class="label">Social work background</span></div>
+        <div class="cred"><span class="num">CFO &amp; Co-Founder</span><span class="label">The Nest Montessori</span></div>
+        <div class="cred"><span class="num">200+</span><span class="label">SOPs written</span></div>
+      </div>
+    </section>
 
     <!-- ABOUT -->
-    <section class="about section-divider" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <img class="about-photo" src="about.jpg" alt="Erica C. Harris seated at a conference table." />
-      <p>Erica C. Harris is a mission-driven leader with an interdisciplinary background spanning education, mental health, military logistics, and systems operations. She is the Co-Founder and Chief Financial Officer of The Nest, a growing, Cognia-accredited network of Montessori schools in Central Texas serving children from infancy through adolescence.</p>
-      <p>Erica's career began with ten years of distinguished service in the U.S. Army, where she repeatedly served in leadership roles above her rank. As a logistics sergeant, she led unit-wide turnarounds, recovered millions in lost assets, and co-authored standard operating procedures still in use today. That training in precision, integrity, and systems thinking now shapes how she builds schools: the operational architecture, the finances, and the culture underneath the classrooms.</p>
-      <p>She holds dual bachelor's degrees in Psychology and Computer Science and a Master of Science in Clinical Social Work with a specialization in children and families. Her clinical career included supporting children in trauma shelters, serving as a drug and alcohol counselor, and providing hospice care for families navigating end-of-life transitions. Those years shaped her conviction that safe, responsive environments and genuine human connection matter most in seasons of uncertainty and growth.</p>
-      <p>A Montessori parent turned school founder, Erica writes and speaks about the systems, finance, and operations behind education that lasts. Her vision rests on a simple belief: when children are entrusted with real responsibility and meaningful work, they do not just rise. They lead.</p>
+    <section class="band about" aria-labelledby="about-heading">
+      <div class="inner narrow">
+        <h2 id="about-heading">About</h2>
+        <p>Erica C. Harris is a mission-driven leader with an interdisciplinary background spanning education, mental health, military logistics, and systems operations. She is the Co-Founder and Chief Financial Officer of The Nest, a growing, Cognia-accredited network of Montessori schools in Central Texas serving children from infancy through adolescence.</p>
+        <p>Erica's career began with ten years of distinguished service in the U.S. Army, where she repeatedly served in leadership roles above her rank. As a logistics sergeant, she led unit-wide turnarounds, recovered millions in lost assets, and co-authored standard operating procedures still in use today. That training in precision, integrity, and systems thinking now shapes how she builds schools: the operational architecture, the finances, and the culture underneath the classrooms.</p>
+        <p class="pull">When children are entrusted with real responsibility and meaningful work, they do not just rise. They lead.</p>
+        <p>She holds dual bachelor's degrees in Psychology and Computer Science and a Master of Science in Clinical Social Work with a specialization in children and families. Her clinical career included supporting children in trauma shelters, serving as a drug and alcohol counselor, and providing hospice care for families navigating end-of-life transitions. Those years shaped her conviction that safe, responsive environments and genuine human connection matter most in seasons of uncertainty and growth.</p>
+        <p>A Montessori parent turned school founder, Erica writes and speaks about the systems, finance, and operations behind education that lasts. Her vision rests on a simple belief: when children are entrusted with real responsibility and meaningful work, they do not just rise. They lead.</p>
+      </div>
     </section>
 
     <!-- VENTURES -->
-    <section class="ventures section-divider" aria-labelledby="ventures-heading">
-      <h2 id="ventures-heading">Ventures</h2>
-      <ul>
-        <li>
-          <span class="venture-name">The Nest Montessori Network</span>
-          <span class="venture-role">Co-Founder, CFO</span>
-          <span class="venture-desc">A Cognia-accredited network of Montessori schools in Central Texas, serving children from infancy through adolescence.</span>
-        </li>
-        <li>
-          <a class="venture-link" href="classroom-comeback.html">
-            <span class="venture-name">Classroom Comeback</span>
-            <span class="venture-role">Co-Founder, CFO</span>
-            <span class="venture-desc">A consultancy redesigning learning spaces for schools and educators.</span>
+    <section class="band ventures" aria-labelledby="ventures-heading">
+      <div class="inner">
+        <h2 id="ventures-heading">What I'm Building</h2>
+        <div class="vcards">
+          <a class="vcard" href="https://www.nestatandersonmill.com">
+            <h3>The Nest Montessori Network</h3>
+            <p class="role">Co-Founder, CFO</p>
+            <p>A Cognia-accredited network of Montessori schools in Central Texas, serving children from infancy through adolescence.</p>
+            <span class="arrow">Visit The Nest &rarr;</span>
           </a>
-        </li>
-        <li>
-          <span class="venture-name">Nest Paint</span>
-          <span class="venture-role">Co-Founder, CFO</span>
-          <span class="venture-desc">A children's coloring book brand encouraging creative expression.</span>
-        </li>
-        <li>
-          <a class="venture-link" href="wingspan.html">
-            <span class="venture-name">Wingspan Opportunity Foundation</span>
-            <span class="venture-role">Co-Founder, CFO</span>
-            <span class="venture-desc">A nonprofit helping students across Texas gain access to Montessori education through scholarships and community support.</span>
+          <a class="vcard" href="classroom-comeback.html">
+            <h3>Classroom Comeback</h3>
+            <p class="role">Co-Founder, CFO</p>
+            <p>A consultancy redesigning learning spaces for schools and educators.</p>
+            <span class="arrow">Learn more &rarr;</span>
           </a>
-        </li>
-        <li>
-          <span class="venture-name">Perch <em>(in development)</em></span>
-          <span class="venture-role">Co-Founder, CFO</span>
-          <span class="venture-desc">A Montessori learning record app for guides and families.</span>
-        </li>
-      </ul>
+          <a class="vcard" href="wingspan.html">
+            <h3>Wingspan Opportunity Foundation</h3>
+            <p class="role">Co-Founder, CFO</p>
+            <p>A nonprofit helping students across Texas gain access to Montessori education through scholarships and community support.</p>
+            <span class="arrow">Learn more &rarr;</span>
+          </a>
+          <div class="vcard">
+            <h3>Nest Paint</h3>
+            <p class="role">Co-Founder, CFO</p>
+            <p>A children's coloring book brand encouraging creative expression.</p>
+          </div>
+          <div class="vcard">
+            <h3>Perch <span style="font-weight:500;color:var(--ink-soft);font-size:0.9rem;">(in development)</span></h3>
+            <p class="role">Co-Founder, CFO</p>
+            <p>A Montessori learning record app for guides and families.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED WRITING -->
+    <section class="band featured" aria-labelledby="featured-heading">
+      <div class="inner">
+        <h2 id="featured-heading">From the Blog</h2>
+        <div class="posts3">
+          <article class="pcard">
+            <p class="pdate">November 18, 2026</p>
+            <h3><a href="blog/your-child-is-more-resilient.html">Your Child Is More Resilient Than You Think</a></h3>
+            <p>Before I was a school founder, before I was a CFO, I spent years in clinical social work.</p>
+            <a class="read" href="blog/your-child-is-more-resilient.html">Read &rarr;</a>
+          </article>
+          <article class="pcard">
+            <p class="pdate">November 2, 2026</p>
+            <h3><a href="blog/hardest-truth-about-staffing.html">The Hardest Truth About Childcare Staffing</a></h3>
+            <p>When a teacher leaves a school unexpectedly, parents feel it personally, and I understand why completely.</p>
+            <a class="read" href="blog/hardest-truth-about-staffing.html">Read &rarr;</a>
+          </article>
+          <article class="pcard">
+            <p class="pdate">October 29, 2026</p>
+            <h3><a href="blog/where-your-tuition-actually-goes.html">Where Your Tuition Actually Goes</a></h3>
+            <p>Parents never ask me this directly, but I know plenty wonder, so let me just answer it.</p>
+            <a class="read" href="blog/where-your-tuition-actually-goes.html">Read &rarr;</a>
+          </article>
+        </div>
+        <div class="featured-cta">
+          <a class="btn btn-white" href="blog/index.html">All Essays</a>
+        </div>
+      </div>
     </section>
 
     <!-- PRESS & SPEAKING -->
-    <section class="press section-divider" aria-labelledby="press-heading">
-      <h2 id="press-heading">Press &amp; Speaking</h2>
-      <p>Speaking and media inquiries welcome.</p>
-      <p>Reach me at <a href="mailto:hello@ericacharris.com">hello@ericacharris.com</a></p>
+    <section class="band press" id="press" aria-labelledby="press-heading">
+      <div class="inner narrow">
+        <h2 id="press-heading">Press &amp; Speaking</h2>
+        <p>Speaking and media inquiries welcome.</p>
+        <p class="press-note">Reach me at <a href="mailto:hello@ericacharris.com">hello@ericacharris.com</a></p>
+      </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrap">
+  <!-- CONTACT / FOOTER -->
+  <footer class="band contact">
+    <div class="inner">
+      <h2>Let's build something that lasts.</h2>
+      <p class="invite">Whether it's a question, a partnership, or a speaking invitation, I'd love to hear from you.</p>
+      <div><a class="btn btn-white" href="mailto:hello@ericacharris.com">hello@ericacharris.com</a></div>
       <ul class="footer-links">
         <li><a href="https://www.linkedin.com/in/ericaharris9809/">LinkedIn</a></li>
         <li><a href="https://www.nestatandersonmill.com">The Nest</a></li>
-        <li><a href="mailto:hello@ericacharris.com">hello@ericacharris.com</a></li>
+        <li><a href="mailto:hello@ericacharris.com">Contact</a></li>
       </ul>
       <p class="copyright">&copy; 2026 Erica C. Harris</p>
     </div>
