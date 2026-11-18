@@ -159,6 +159,19 @@
       font-family: var(--serif); font-weight: 600; font-size: 1.5rem; line-height: 1.35;
       color: var(--teal); margin: 2rem 0; padding-left: 1.25rem; border-left: 4px solid var(--accent);
     }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 2.25rem; align-items: start; }
+    .about-photo { position: relative; width: 100%; max-width: 360px; margin: 0 auto; padding: 14px 0 0 14px; }
+    .about-photo .about-frame {
+      position: relative; z-index: 1; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 12px 32px rgba(67, 92, 95, 0.16);
+    }
+    .about-photo .about-frame img { display: block; width: 100%; height: auto; }
+    .about-photo::before {
+      content: ""; position: absolute; z-index: 0; top: 0; left: 0;
+      width: calc(100% - 14px); height: calc(100% - 14px);
+      border: 2px solid var(--teal); border-radius: 16px;
+    }
+    .about-text > :first-child { margin-top: 0; }
 
     /* VENTURES */
     .ventures h2 { font-size: 1.9rem; margin: 0 0 2rem; }
@@ -213,6 +226,10 @@
       .vcards { grid-template-columns: repeat(2, 1fr); }
       .posts3 { grid-template-columns: repeat(3, 1fr); }
     }
+    @media (min-width: 820px) {
+      .about-grid { grid-template-columns: 340px 1fr; gap: 3rem; }
+      .about-photo { margin: 0; }
+    }
     @media (min-width: 880px) {
       .hero { padding: 4.5rem 0 5rem; }
       .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 3rem; }
@@ -263,13 +280,20 @@
 
     <!-- ABOUT -->
     <section class="band about" aria-labelledby="about-heading">
-      <div class="inner narrow">
-        <h2 id="about-heading">About</h2>
-        <p>Erica C. Harris is a mission-driven leader with an interdisciplinary background spanning education, mental health, military logistics, and systems operations. She is the Co-Founder and Chief Financial Officer of The Nest, a growing, Cognia-accredited network of Montessori schools in Central Texas serving children from infancy through adolescence.</p>
-        <p>Erica's career began with ten years of distinguished service in the U.S. Army, where she repeatedly served in leadership roles above her rank. As a logistics sergeant, she led unit-wide turnarounds, recovered millions in lost assets, and co-authored standard operating procedures still in use today. That training in precision, integrity, and systems thinking now shapes how she builds schools: the operational architecture, the finances, and the culture underneath the classrooms.</p>
-        <p class="pull">When children are entrusted with real responsibility and meaningful work, they do not just rise. They lead.</p>
-        <p>She holds dual bachelor's degrees in Psychology and Computer Science and a Master of Science in Clinical Social Work with a specialization in children and families. Her clinical career included supporting children in trauma shelters, serving as a drug and alcohol counselor, and providing hospice care for families navigating end-of-life transitions. Those years shaped her conviction that safe, responsive environments and genuine human connection matter most in seasons of uncertainty and growth.</p>
-        <p>A Montessori parent turned school founder, Erica writes and speaks about the systems, finance, and operations behind education that lasts. Her vision rests on a simple belief: when children are entrusted with real responsibility and meaningful work, they do not just rise. They lead.</p>
+      <div class="inner about-grid">
+        <div class="about-photo">
+          <div class="about-frame">
+            <img src="about.jpg" alt="Erica C. Harris seated at a conference table." />
+          </div>
+        </div>
+        <div class="about-text">
+          <h2 id="about-heading">About</h2>
+          <p>Erica C. Harris is a mission-driven leader with an interdisciplinary background spanning education, mental health, military logistics, and systems operations. She is the Co-Founder and Chief Financial Officer of The Nest, a growing, Cognia-accredited network of Montessori schools in Central Texas serving children from infancy through adolescence.</p>
+          <p>Erica's career began with ten years of distinguished service in the U.S. Army, where she repeatedly served in leadership roles above her rank. As a logistics sergeant, she led unit-wide turnarounds, recovered millions in lost assets, and co-authored standard operating procedures still in use today. That training in precision, integrity, and systems thinking now shapes how she builds schools: the operational architecture, the finances, and the culture underneath the classrooms.</p>
+          <p class="pull">When children are entrusted with real responsibility and meaningful work, they do not just rise. They lead.</p>
+          <p>She holds dual bachelor's degrees in Psychology and Computer Science and a Master of Science in Clinical Social Work with a specialization in children and families. Her clinical career included supporting children in trauma shelters, serving as a drug and alcohol counselor, and providing hospice care for families navigating end-of-life transitions. Those years shaped her conviction that safe, responsive environments and genuine human connection matter most in seasons of uncertainty and growth.</p>
+          <p>A Montessori parent turned school founder, Erica writes and speaks about the systems, finance, and operations behind education that lasts. Her vision rests on a simple belief: when children are entrusted with real responsibility and meaningful work, they do not just rise. They lead.</p>
+        </div>
       </div>
     </section>
 
